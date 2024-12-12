@@ -5,7 +5,7 @@ const Student = require("./student.model");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT||3000;
 app.use(cors());
 app.use(express.json());
 //test route
@@ -94,7 +94,7 @@ app.delete("/:id", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   connectToDB();
   console.log("http://localhost:3000");
 });
